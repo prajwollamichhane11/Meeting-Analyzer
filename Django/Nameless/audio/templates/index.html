@@ -1,0 +1,142 @@
+{% load static %}
+<html>
+<head>
+  <style type="text/css">
+#summary, {
+ background:white;
+ width: 300px;
+ height: 50px;
+ font: normal 14px verdana;
+ line-height: 25px;
+ padding: 2px 10px;
+ border: solid 3px #ddd;
+}
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+
+/* body  {
+  background-image: url("https://cdn.hipwallpaper.com/m/81/78/8dijbx.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.subscribemodal {
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+form {
+  border: 3px solid #f1f1f1;
+  font-family: Arial;
+}
+
+.subscribe {
+  /*padding: 20px;*/
+/*  background-color: #f1f1f1;
+*/}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  /*height: 10px;*/
+  padding: 10px;
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.6;
+}
+
+.topnav-right {
+  float: right;
+}
+</style>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <title>Meeting Analyzer and Summarizer</title>
+</head>
+<body>
+
+<div>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" href="{% url 'index' %}">INSTEP HACKATHON 2020 | HOME</a>
+  </div>  
+
+
+ 
+
+  
+    <!-- {% if text == 1 %}
+    <script type="text/javascript">$("#corona").modal('show');</script>
+    {% elif text == 0 %}
+    <script type="text/javascript">$("#nocorona").modal('show');</script>
+    {% endif %}
+ -->
+
+
+
+<br> <br>
+
+<!-- <body>
+  <form method="POST" class="post-form" enctype="multipart/form-data">  
+          {% csrf_token %}  
+          {{ form.as_p }}  
+          <a href="{% url 'home' %}"><button type="submit" class="save btn btn-default">Upload</button></a>  
+  </form>  
+</body>  -->
+<br><br>
+
+
+<!-- 
+<div align="center" class="container" id="about" style="padding-top:70px;padding-bottom:0px;background-color: ##aaa">
+    <h1>Meeting Analyzer and Summarizer</h1> <br><br>
+    <p class="alert alert-info" style="text-align: justify center;">Title:<br> {{title}}</p>
+    <p class="alert alert-danger" style="text-align: justify center;">Summary:<br> {{summary}}</p>
+    <p class="alert alert-success" style="text-align: justify center;">Polarity:<br> {{polarity}}</p>
+    <p class="alert alert-success" style="text-align: justify center;">Word Highlights:<br> {{word_highlights}}</p>
+
+</div>
+ -->
+
+</body>
+</html>
+
+
+<div class="container mt-5">
+    <h1 class="text-center">Upload the Meeting Audio</h1>
+    <div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}  
+        {{ form.as_p }} 
+      <div class="form-group">
+        <label><strong>Upload Files</strong></label>
+      </div>
+      <div class="form-group">
+        <button type="submit" value="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> Upload</button>
+      </div>
+    </form>
+    <p>Could take some time depending on the meeting length.</p>
+
+  </div>
